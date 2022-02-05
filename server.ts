@@ -8,7 +8,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/tuiter')
+mongoose.connect('mongodb+srv://admin:' + process.env.DB_PASSWORD + '@cluster0.aazb2.mongodb.net/tuiter?retryWrites=true&w=majority')
 app.use(bodyParser.json())
 
 app.get('/hello', (req: Request, res: Response) =>
