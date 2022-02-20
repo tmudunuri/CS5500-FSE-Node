@@ -21,3 +21,8 @@ const tuitController = new TuitController(app, tuitDao);
 
 const PORT = 4000;
 app.listen(process.env.PORT || PORT);
+
+
+// Export data
+// mongoexport --uri mongodb+srv://admin:<password>@cluster0.aazb2.mongodb.net/tuiter --collection users --type json --out users.json
+// mongoexport --uri mongodb+srv://admin:<password>@cluster0.aazb2.mongodb.net/tuiter --collection tuits --type json --out tuits.json
