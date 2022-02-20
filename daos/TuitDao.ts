@@ -2,9 +2,9 @@
  * @file Implements DAO managing data storage of tuits. Uses mongoose TuitModel
  * to integrate with MongoDB
  */
-import Tuit from "../models/Tuit";
-import TuitModel from "../mongoose/TuitModel";
-import TuitDaoI from "../interfaces/TuitDao";
+import Tuit from "../models/tuits/Tuit";
+import TuitModel from "../mongoose/tuits/TuitModel";
+import TuitDaoI from "../interfaces/TuitDaoI";
 
 /**
  * @class UserDao Implements Data Access Object managing data storage

@@ -3,8 +3,8 @@
  */
 import {Request, Response, Express} from "express";
 import TuitDao from "../daos/TuitDao";
-import TuitControllerI from "../interfaces/TuitController";
-import Tuit from "../models/Tuit";
+import TuitControllerI from "../interfaces/TuitControllerI";
+import Tuit from "../models/tuits/Tuit";
 
 /**
  * @class TuitController Implements RESTful Web service API for tuits resource.

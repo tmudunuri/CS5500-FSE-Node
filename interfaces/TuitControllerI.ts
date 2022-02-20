@@ -1,5 +1,4 @@
 import {Request, Response} from "express";
-import Tuit from "../models/Tuit";
 
 export default interface TuitControllerI {
     findAllTuits(req: Request, res: Response): void;
