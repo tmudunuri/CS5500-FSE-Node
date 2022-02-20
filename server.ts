@@ -5,7 +5,8 @@ import TuitDao from './daos/TuitDao';
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
-mongoose.connect('mongodb+srv://admin:' + process.env.DB_PASSWORD + '@cluster0.aazb2.mongodb.net/tuiter?retryWrites=true&w=majority')
+
+mongoose.connect('mongodb+srv://admin:' + process.env.DB_PASSWORD + '@cluster0.ayiv2.mongodb.net/tuiter?retryWrites=true&w=majority')
 const app = express();
 app.use(bodyParser.json())
 
