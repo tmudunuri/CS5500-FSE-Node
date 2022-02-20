@@ -1,7 +1,6 @@
 import express, {Request, Response} from 'express';
 import UserController from './controllers/UserController';
 import TuitController from "./controllers/TuitController";
-import TuitDao from './daos/TuitDao';
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
@@ -13,9 +12,8 @@ app.use(bodyParser.json())
 app.get('/hello', (req: Request, res: Response) =>
     res.send('Hello World!'));
 
-const tuitDao = new TuitDao();
 const userController = UserController.getInstance(app);
-const tuitController = new TuitController(app, tuitDao);
+const tuitController = TuitController.getInstance(app);
 
 // create RESTful Web service API
 
