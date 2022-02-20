@@ -1,6 +1,6 @@
 import User from "../models/User";
 
-export default interface UserDao {
+export default interface UserDaoI {
     findAllUsers(): Promise<User[]>;
 
     findUserById(uid: string): Promise<any>;
@@ -10,4 +10,6 @@ export default interface UserDao {
     updateUser(uid: string, user: User): Promise<any>;
 
     deleteUser(uid: string): Promise<any>;
-}
+
+    deleteAllUsers(): Promise<any>;
+};
