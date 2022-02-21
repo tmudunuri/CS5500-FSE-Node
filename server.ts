@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import UserController from './controllers/UserController';
 import TuitController from "./controllers/TuitController";
 import LikeController from "./controllers/LikeController";
+import FollowController from "./controllers/LikeController";
 
 mongoose.connect('mongodb+srv://admin:' + process.env.DB_PASSWORD + '@cluster0.ayiv2.mongodb.net/tuiter?retryWrites=true&w=majority')
 const app = express();
@@ -15,6 +16,7 @@ app.get('/hello', (req: Request, res: Response) =>
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 const likesController = LikeController.getInstance(app);
+const followController = FollowController.getInstance(app);
 
 // create RESTful Web service API
 
