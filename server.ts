@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import UserController from './controllers/UserController';
 import TuitController from "./controllers/TuitController";
 import LikeController from "./controllers/LikeController";
-import FollowController from "./controllers/LikeController";
+import FollowController from "./controllers/FollowController";
 
 mongoose.connect('mongodb+srv://admin:' + process.env.DB_PASSWORD + '@cluster0.ayiv2.mongodb.net/tuiter?retryWrites=true&w=majority')
 const app = express();
