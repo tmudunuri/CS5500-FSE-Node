@@ -12,7 +12,7 @@ export default interface FollowDaoI {
 
     findAllUsersThatFollowUser(uid: string): Promise<Follow[]>;
 
-    userLosesAllFollowers(uid: string): Promise<Follow[]>;
+    userLosesAllFollowers(uid: string): Promise<any>;
 
     userUnfollowsAllUsers(uid: string): Promise<any>;
 };
