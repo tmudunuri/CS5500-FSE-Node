@@ -25,11 +25,12 @@ import LikeControllerI from "../interfaces/LikeControllerI";
 export default class LikeController implements LikeControllerI {
     private static likeDao: LikeDao = LikeDao.getInstance();
     private static likeController: LikeController | null = null;
+
     /**
      * Creates singleton controller instance
      * @param {Express} app Express instance to declare the RESTful Web service
      * API
-     * @return TuitController
+     * @return LikeController
      */
     public static getInstance = (app: Express): LikeController => {
         if (LikeController.likeController === null) {

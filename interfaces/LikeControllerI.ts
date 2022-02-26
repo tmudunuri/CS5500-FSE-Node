@@ -1,3 +1,6 @@
+/**
+ * @file Declares Controller for the Likes resource
+ */
 import {Request, Response} from "express";
 
 export default interface LikeControllerI {

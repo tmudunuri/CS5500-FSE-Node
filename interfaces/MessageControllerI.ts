@@ -1,3 +1,6 @@
+/**
+ * @file Declares Controller for the Messages resource
+ */
 import {Request, Response} from "express";
 
 export default interface MessageControllerI {

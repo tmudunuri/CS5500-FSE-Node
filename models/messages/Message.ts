@@ -1,6 +1,6 @@
 /**
  * @file Declares Message data type representing a direct message between
- * tweo users, as in user messages another user
+ * two users, as in user messages another user
  */
 import User from "../users/User";
 
@@ -12,7 +12,6 @@ import User from "../users/User";
  * @property {User} from user who sent the message
  * @property {Date} sentOn time the message was sent
  */
-
 export default interface Message {
     message: string,
     to: User,

@@ -29,11 +29,12 @@ import FollowControllerI from "../interfaces/FollowControllerI";
 export default class FollowController implements FollowControllerI {
     private static followDao: FollowDao = FollowDao.getInstance();
     private static followController: FollowController | null = null;
+
     /**
      * Creates singleton controller instance
      * @param {Express} app Express instance to declare the RESTful Web service
      * API
-     * @return UserController
+     * @return FollowController
      */
     public static getInstance = (app: Express): FollowController => {
         if (FollowController.followController === null) {
@@ -96,10 +97,24 @@ export default class FollowController implements FollowControllerI {
         FollowController.followDao.userUnfollowsUser(req.params.uid1, req.params.uid2)
             .then(status => res.send(status));
 
+    /**
+     * @param {Request} req Represents request from client, including the
+     * path parameters uid representing the user that is losing
+     * all their followers
+     * @param {Response} res Represents response to client, including status
+     * on whether deleting the followers was successful or not
+     */
     userLosesAllFollowers = (req: Request, res: Response) =>
         FollowController.followDao.userLosesAllFollowers(req.params.uid)
             .then(status => res.send(status));
 
+    /**
+     * @param {Request} req Represents request from client, including the
+     * path parameters uid representing the user that is unfollowing
+     * all users
+     * @param {Response} res Represents response to client, including status
+     * on whether unfollowing the users was successful or not
+     */
     userUnfollowsAllUsers = (req: Request, res: Response) =>
         FollowController.followDao.userUnfollowsAllUsers(req.params.uid)
             .then(status => res.send(status));

@@ -1,3 +1,6 @@
+/**
+ * @file Implements the main server file that runs the app
+ */
 import express, {Request, Response} from 'express';
 import mongoose from "mongoose";
 import bodyParser from "body-parser";

@@ -32,7 +32,7 @@ export default class MessageController implements MessageControllerI {
      * Creates singleton controller instance
      * @param {Express} app Express instance to declare the RESTful Web service
      * API
-     * @return UserController
+     * @return MessageController
      */
     public static getInstance = (app: Express): MessageController => {
         if (MessageController.messageController === null) {

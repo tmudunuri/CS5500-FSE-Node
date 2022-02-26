@@ -1,3 +1,6 @@
+/**
+ * @file Declares Controller for the Users resource
+ */
 import {Request, Response} from "express";
 
 export default interface UserControllerI {

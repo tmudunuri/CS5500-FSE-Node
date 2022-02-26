@@ -31,7 +31,7 @@ export default class BookmarkController implements BookmarkControllerI {
      * Creates singleton controller instance
      * @param {Express} app Express instance to declare the RESTful Web service
      * API
-     * @return TuitController
+     * @return BookmarkController
      */
     public static getInstance = (app: Express): BookmarkController => {
         if (BookmarkController.bookmarkController === null) {
