@@ -6,7 +6,6 @@
 /**
  * @typedef AccountType Enumerates possible account types of Users
  */
-
 enum AccountType {
     Personal = 'PERSONAL',
     Academic = 'ACADEMIC',
