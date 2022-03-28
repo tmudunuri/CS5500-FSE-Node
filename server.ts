@@ -35,10 +35,7 @@ const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${
 mongoose.connect(connectionString);
 
 const app = express();
-app.use(cors({
-    credentials: true,
-    origin: 'http://localhost:3000'
-}));
+app.use(cors())
 
 let sess = {
     secret: 'process.env.SECRET',
