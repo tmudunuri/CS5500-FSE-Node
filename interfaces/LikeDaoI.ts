@@ -15,8 +15,6 @@ export default interface LikeDaoI {
 
     findAllUsersThatDislikedTuit(tid: string): Promise<Dislike[]>;
 
-    findAllTuitsDislikedByUser(uid: string): Promise<Dislike[]>;
-
     userUndislikesTuit(tid: string, uid: string): Promise<any>;
 
     userDislikesTuit(tid: string, uid: string): Promise<Dislike>;
