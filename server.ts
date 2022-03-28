@@ -37,7 +37,7 @@ mongoose.connect(connectionString);
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000', 'https://cs5500-tuiter-a4.herokuapp.com/']
+    origin: ['http://localhost:3000', 'https://gorgeous-narwhal-3d56be.netlify.app']
 }));
 
 let sess = {
