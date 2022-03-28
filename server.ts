@@ -35,7 +35,10 @@ const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${
 mongoose.connect(connectionString);
 
 const app = express();
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:3000', 'https://cs5500-tuiter-a4.herokuapp.com/']
+}));
 
 let sess = {
     secret: 'process.env.SECRET',
