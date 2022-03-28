@@ -37,6 +37,7 @@ export default class LikeController implements LikeControllerI {
         if (LikeController.likeController === null) {
             LikeController.likeController = new LikeController();
             app.get("/api/tuits/:tid/likes", LikeController.likeController.findAllUsersThatLikedTuit);
+            app.get("/api/users/:uid/likes", LikeController.likeController.findAllTuitsLikedByUser);
             app.put("/api/users/:uid/likes/:tid", LikeController.likeController.userTogglesTuitLikes);
             app.get("/api/users/:uid/dislikes", LikeController.likeController.findAllTuitsDislikedByUser);
             app.get("/api/tuits/:tid/dislikes", LikeController.likeController.findAllUsersThatDislikedTuit);
@@ -59,7 +60,27 @@ export default class LikeController implements LikeControllerI {
         LikeController.likeDao.findAllUsersThatLikedTuit(req.params.tid)
             .then(likes => res.json(likes));
 
+    /**
+     * Retrieves all tuits liked by a user from the database
+     * @param {Request} req Represents request from client, including the path
+     * parameter uid representing the user liked the tuits
+     * @param {Response} res Represents response to client, including the
+     * body formatted as JSON arrays containing the tuit objects that were liked
+     */
+    findAllTuitsLikedByUser = (req: Request, res: Response) => {
+        const uid = req.params.uid;
+        // @ts-ignore
+        const profile = req.session['profile'];
+        const userId = uid === "me" && profile ?
+            profile._id : uid;
 
+        LikeController.likeDao.findAllTuitsLikedByUser(userId)
+            .then(likes => {
+                const likesNonNullTuits = likes.filter(like => like.tuit);
+                const tuitsFromLikes = likesNonNullTuits.map(like => like.tuit);
+                res.json(tuitsFromLikes);
+            });
+    }
 
     /**
      * @param {Request} req Represents request from client, including the
