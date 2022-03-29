@@ -40,6 +40,7 @@ app.use(cors({
     origin: ['http://localhost:3000', 'https://gorgeous-narwhal-3d56be.netlify.app']
 }));
 
+app.set('trust proxy', 1);
 let sess = {
     secret: 'process.env.SECRET',
     saveUninitialized: true,
