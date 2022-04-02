@@ -40,19 +40,22 @@ app.use(cors({
     origin: ['http://localhost:3000', 'https://gorgeous-narwhal-3d56be.netlify.app']
 }));
 
-app.set('trust proxy', 1);
+const isProduction = process.env.ENVIRONMENT === 'PRODUCTION';
+
 let sess = {
     secret: 'process.env.SECRET',
     saveUninitialized: true,
     resave: true,
     cookie: {
-        secure: false
+        sameSite: isProduction ? 'none' : 'lax',
+        secure: isProduction
     }
 }
 
-if (process.env.ENVIRONMENT === 'PRODUCTION') {
+if (isProduction) {
     app.set('trust proxy', 1) // trust first proxy
-    sess.cookie.secure = true // serve secure cookies
+    // sess.cookie.secure = true // serve secure cookies
+    // sess.resave = false
 }
 
 app.use(session(sess))
