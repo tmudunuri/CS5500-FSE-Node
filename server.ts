@@ -35,12 +35,11 @@ const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${
 mongoose.connect(connectionString);
 
 const app = express();
+const isProduction = process.env.ENVIRONMENT === 'PRODUCTION';
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000', 'https://gorgeous-narwhal-3d56be.netlify.app']
+    origin: isProduction ? 'https://gorgeous-narwhal-3d56be.netlify.app' : ['http://localhost', 'http://localhost:3000']
 }));
-
-const isProduction = process.env.ENVIRONMENT === 'PRODUCTION';
 
 let sess = {
     secret: 'process.env.SECRET',
