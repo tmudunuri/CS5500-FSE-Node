@@ -1,13 +1,37 @@
+/**
+ * @file Controller RESTful Web service API for authentication resource
+ */
 import {Request, Response, Express} from "express";
 import UserDao from "../daos/UserDao";
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+/**
+ * @class AuthenticationController Implements RESTful Web service API for auth resource.
+ * Defines the following HTTP endpoints:
+ * <ul>
+ *     <li>GET /api/auth/login to login
+ *     </li>
+ *     <li>GET /api/auth/logout to logout
+ *     </li>
+ *     <li>POST /api/auth/register to register a new account
+ *     </li>
+ *     <li>DELETE /api/auth/profile to view profile
+ *     </li>
+ * </ul>
+ * @property {UserDao} userDao Singleton DAO implementing user CRUD operations
+ * RESTful Web service API
+ */
 const AuthenticationController = (app: Express) => {
 
     const userDao: UserDao = UserDao.getInstance();
 
+    /**
+     * Logs a user into their account
+     * @param {Request} req Represents request from client
+     * @param {Response} res Represents response to client
+     */
     const login = async (req: Request, res: Response) => {
         const user = req.body;
         const username = user.username;
@@ -30,6 +54,11 @@ const AuthenticationController = (app: Express) => {
         }
     }
 
+    /**
+     * Registers a new user
+     * @param {Request} req Represents request from client
+     * @param {Response} res Represents response to client
+     */
     const register = async (req: Request, res: Response) => {
         const newUser = req.body;
         const password = newUser.password;
@@ -51,6 +80,12 @@ const AuthenticationController = (app: Express) => {
         }
     }
 
+
+    /**
+     * Retrieves profile of user
+     * @param {Request} req Represents request from client
+     * @param {Response} res Represents response to client
+     */
     const profile = (req: Request, res: Response) => {
         // @ts-ignore
         const profile = req.session['profile'];
@@ -62,6 +97,12 @@ const AuthenticationController = (app: Express) => {
         }
     }
 
+
+    /**
+     * Logs a user out of their account
+     * @param {Request} req Represents request from client
+     * @param {Response} res Represents response to client
+     */
     const logout = (req: Request, res: Response) => {
         // @ts-ignore
         req.session.destroy();
