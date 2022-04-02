@@ -38,7 +38,7 @@ const app = express();
 const isProduction = process.env.ENVIRONMENT === 'PRODUCTION';
 app.use(cors({
     credentials: true,
-    origin: isProduction ? 'https://gorgeous-narwhal-3d56be.netlify.app' : ['http://localhost', 'http://localhost:3000']
+    origin: ['https://gorgeous-narwhal-3d56be.netlify.app', 'http://localhost', 'http://localhost:3000']
 }));
 
 let sess = {
